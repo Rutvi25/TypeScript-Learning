@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "module": "none",
+   
   },
   "exclude": [
     "node_modules"

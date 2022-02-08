@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+var student_1 = require("./student");
 console.log("Hello TypeScript!");
 // variable types
 var a = 18;
@@ -39,7 +42,22 @@ var students = {
     Phone: 1234567890,
     Language: LanguagesKnown[LanguagesKnown.English]
 };
+//List of students
 var studentlist = [
+    {
+        Name: "John",
+        Age: 20,
+        Phone: 1023456798,
+        Language: LanguagesKnown[LanguagesKnown.Hindi]
+    },
+    {
+        Name: "Mark",
+        Age: 22,
+        Phone: 1203456789,
+        Language: LanguagesKnown[LanguagesKnown.Tamil]
+    },
+];
+var studentlistG = [
     {
         Name: "John",
         Age: 20,
@@ -140,16 +158,20 @@ var StudentFullName = function (lName, fName) {
 };
 console.log(StudentFullName("Patel", "Rutvi"));
 // Class
-var Students = /** @class */ (function () {
-    function Students(lName, fName) {
-        this._lName = lName;
-        this._fName = fName;
-    }
-    Students.prototype.GetFullName = function () {
-        return this._lName + "..." + this._fName;
-    };
-    return Students;
-}());
-var s = new Students("Patel", "Rutvi");
+var s = new student_1.Student("Patel", "Rutvi");
 console.log(">>>classes:", s.GetFullName());
+// Generics
+function GetStudentsListGenerics(students) {
+    students.forEach(function (element) {
+        console.log(">>> Generics: " + "Age: " +
+            element.Age +
+            " with Name " +
+            element.Name +
+            " has Phone: " +
+            element.Phone +
+            " knows language " +
+            element.Language);
+    });
+}
+GetStudentsListGenerics(studentlistG);
 //# sourceMappingURL=TypeScript.js.map

@@ -1,3 +1,6 @@
+import {IStudentInfo} from "./IStudentInfo"
+import {Student} from "./student"
+
 console.log("Hello TypeScript!");
 // variable types
 let a = 18;
@@ -30,22 +33,30 @@ enum LanguagesKnown {
   Hindi,
   Tamil,
 }
-// Interface declaration
-interface StudentInfo {
-  Name: String;
-  Age: Number;
-  Phone: Number;
-  Language: string;
-}
 // Arrays
 // declaring student
-let students:StudentInfo = {
+let students:IStudentInfo = {
   Name: "Rutvi",
   Age: 21,
   Phone: 1234567890,
   Language: LanguagesKnown[LanguagesKnown.English],
 };
-let studentlist:StudentInfo[] = [
+//List of students
+let studentlist:IStudentInfo[] = [
+  {
+    Name: "John",
+    Age: 20,
+    Phone: 1023456798,
+    Language: LanguagesKnown[LanguagesKnown.Hindi],
+  },
+  {
+    Name: "Mark",
+    Age: 22,
+    Phone: 1203456789,
+    Language: LanguagesKnown[LanguagesKnown.Tamil],
+  },
+];
+let studentlistG:Array<IStudentInfo> = [
   {
     Name: "John",
     Age: 20,
@@ -107,7 +118,7 @@ let nums: string[] = disp();
 console.log(nums);
 // Functions
 // function declaration
-function GetStudentsList(students: StudentInfo[]) {
+function GetStudentsList(students: IStudentInfo[]) {
   students.forEach((element) => {
     console.log(
       "Age: " +
@@ -145,16 +156,22 @@ let StudentFullName = (lName: string, fName: string) => {
 };
 console.log(StudentFullName("Patel", "Rutvi"));
 // Class
-class Students {
-  private _lName: string;
-  private _fName: string;
-  constructor(lName,fName){
-    this._lName = lName;
-    this._fName = fName;
-  } 
-  GetFullName():string{
-    return this._lName + "..." + this._fName;
-  }
-}
-let s = new Students("Patel", "Rutvi");
+
+let s = new Student("Patel", "Rutvi");
 console.log(">>>classes:", s.GetFullName());
+// Generics
+function GetStudentsListGenerics(students: Array<IStudentInfo>) {
+  students.forEach((element) => {
+    console.log(
+      ">>> Generics: " + "Age: " +
+        element.Age +
+        " with Name " +
+        element.Name +
+        " has Phone: " +
+        element.Phone +
+        " knows language " +
+        element.Language
+    );
+  });
+}
+GetStudentsListGenerics(studentlistG)
