@@ -1,6 +1,5 @@
 "use strict";
 exports.__esModule = true;
-exports.Student = void 0;
 var Students = /** @class */ (function () {
     function Students(lName, fName) {
         this._lName = lName;
@@ -11,5 +10,6 @@ var Students = /** @class */ (function () {
     };
     return Students;
 }());
-exports.Student = Students;
+exports["default"] = Students;
+// export {Students as Student} //alias
 //# sourceMappingURL=student.js.map

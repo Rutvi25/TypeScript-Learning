@@ -1,6 +1,5 @@
 import {IStudentInfo} from "./IStudentInfo"
-import {Student} from "./student"
-
+import Student from "./student"
 console.log("Hello TypeScript!");
 // variable types
 let a = 18;
@@ -33,6 +32,7 @@ enum LanguagesKnown {
   Hindi,
   Tamil,
 }
+
 // Arrays
 // declaring student
 let students:IStudentInfo = {
@@ -70,6 +70,7 @@ let studentlistG:Array<IStudentInfo> = [
     Language: LanguagesKnown[LanguagesKnown.Tamil],
   },
 ];
+
 studentlist.push(students);
 for (let index = 0; index < studentlist.length; index++) {
   let element = studentlist[index];

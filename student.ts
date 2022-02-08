@@ -1,4 +1,4 @@
-class Students {
+export default class Students {
   private _lName: string;
   private _fName: string;
   constructor(lName, fName) {
@@ -9,4 +9,4 @@ class Students {
     return this._lName + "..." + this._fName;
   }
 }
-export {Students as Student} //alias
+// export {Students as Student} //alias

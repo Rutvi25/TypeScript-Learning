@@ -158,7 +158,7 @@ var StudentFullName = function (lName, fName) {
 };
 console.log(StudentFullName("Patel", "Rutvi"));
 // Class
-var s = new student_1.Student("Patel", "Rutvi");
+var s = new student_1["default"]("Patel", "Rutvi");
 console.log(">>>classes:", s.GetFullName());
 // Generics
 function GetStudentsListGenerics(students) {
