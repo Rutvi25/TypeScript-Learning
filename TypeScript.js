@@ -3,8 +3,8 @@ console.log("Hello TypeScript!");
 var a = 18;
 console.log(a);
 //>>>18
-//let a = "Rutvi" 
-// It will show an error. Block scoped variables can't be declared 
+//let a = "Rutvi"
+// It will show an error. Block scoped variables can't be declared
 //again with different datatype.
 var b = true;
 var c = "Rutvi";
@@ -17,8 +17,8 @@ console.log(">>> Any Type variable: x=", x, typeof x);
 x = "Rutvi";
 console.log(">>> Any Type variable: x=", x, typeof x);
 // >>> Any Type variable: x= Rutvi string
-// If number is starting with 0 in typescript, then it will consider that number as an octal number, 
-// except the immediate number after 0 is 8 or 9. 
+// If number is starting with 0 in typescript, then it will consider that number as an octal number,
+// except the immediate number after 0 is 8 or 9.
 // let y = 02.34 // this will also show an error because octal numbers must be integer.
 var y = "02.34";
 var z = parseFloat(y);
@@ -32,6 +32,7 @@ var LanguagesKnown;
     LanguagesKnown[LanguagesKnown["Tamil"] = 2] = "Tamil";
 })(LanguagesKnown || (LanguagesKnown = {}));
 // Arrays
+// declaring student
 var students = {
     Name: "Rutvi",
     Age: 21,
@@ -39,13 +40,30 @@ var students = {
     Language: LanguagesKnown[LanguagesKnown.English]
 };
 var studentlist = [
-    { Name: "John", Age: 20, Phone: 1023456798, Language: LanguagesKnown[LanguagesKnown.Hindi] },
-    { Name: "Mark", Age: 22, Phone: 1203456789, Language: LanguagesKnown[LanguagesKnown.Tamil] }
+    {
+        Name: "John",
+        Age: 20,
+        Phone: 1023456798,
+        Language: LanguagesKnown[LanguagesKnown.Hindi]
+    },
+    {
+        Name: "Mark",
+        Age: 22,
+        Phone: 1203456789,
+        Language: LanguagesKnown[LanguagesKnown.Tamil]
+    },
 ];
 studentlist.push(students);
 for (var index = 0; index < studentlist.length; index++) {
     var element = studentlist[index];
-    console.log("Age: " + element.Age + " with Name " + element.Name + " has Phone: " + element.Phone + " knows language " + element.Language);
+    console.log("Age: " +
+        element.Age +
+        " with Name " +
+        element.Name +
+        " has Phone: " +
+        element.Phone +
+        " knows language " +
+        element.Language);
 }
 /*
   Age: 20 with Name John has Phone: 1023456798 knows language Hindi
@@ -59,7 +77,10 @@ for (var i = 0; i < arr_names.length; i++) {
     console.log(">>> Array object", arr_names[i]);
 }
 // Multi-dimensional array
-var multiDimensional = [[1, 2, 3], [23, 24, 25]];
+var multiDimensional = [
+    [1, 2, 3],
+    [23, 24, 25],
+];
 console.log(multiDimensional[0][0]); // 1
 console.log(multiDimensional[0][1]); // 2
 // Passing Arrays to Functions
@@ -77,9 +98,17 @@ function disp() {
 var nums = disp();
 console.log(nums);
 // Functions
+// function declaration
 function GetStudentsList(students) {
     students.forEach(function (element) {
-        console.log("Age: " + element.Age + " with Name " + element.Name + " has Phone: " + element.Phone + " knows language " + element.Language);
+        console.log("Age: " +
+            element.Age +
+            " with Name " +
+            element.Name +
+            " has Phone: " +
+            element.Phone +
+            " knows language " +
+            element.Language);
     });
 }
 GetStudentsList(studentlist);
@@ -106,7 +135,21 @@ var StudentName = function (lName, fName) {
 };
 console.log(">>> Anonymous Functions ", StudentName("Patel", "Rutvi"));
 // Arrow Function
-var StudentFullName = function (lName, fName) { return fName + "..." + lName; };
+var StudentFullName = function (lName, fName) {
+    return fName + "..." + lName;
+};
 console.log(StudentFullName("Patel", "Rutvi"));
-// Interfaces
+// Class
+var Students = /** @class */ (function () {
+    function Students(lName, fName) {
+        this._lName = lName;
+        this._fName = fName;
+    }
+    Students.prototype.GetFullName = function () {
+        return this._lName + "..." + this._fName;
+    };
+    return Students;
+}());
+var s = new Students("Patel", "Rutvi");
+console.log(">>>classes:", s.GetFullName());
 //# sourceMappingURL=TypeScript.js.map

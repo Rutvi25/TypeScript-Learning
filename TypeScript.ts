@@ -144,3 +144,17 @@ let StudentFullName = (lName: string, fName: string) => {
   return fName + "..." + lName;
 };
 console.log(StudentFullName("Patel", "Rutvi"));
+// Class
+class Students {
+  private _lName: string;
+  private _fName: string;
+  constructor(lName,fName){
+    this._lName = lName;
+    this._fName = fName;
+  } 
+  GetFullName():string{
+    return this._lName + "..." + this._fName;
+  }
+}
+let s = new Students("Patel", "Rutvi");
+console.log(">>>classes:", s.GetFullName());
