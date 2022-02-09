@@ -202,4 +202,13 @@ const phoneDict = {
     office: { areaCode: 321, num: 123456 },
 };
 console.log(phoneDict.office.areaCode);
+// Access modifiers
+class PraramPropComponent {
+    constructor(name, email = "no email") {
+        this.name = name;
+        this.email = email;
+    }
+}
+const accessModifier = new PraramPropComponent("John", "john@gmail.com");
+console.log(accessModifier.name);
 //# sourceMappingURL=TypeScript.js.map

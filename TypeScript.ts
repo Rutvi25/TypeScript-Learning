@@ -228,3 +228,13 @@ const phoneDict: PhoneNumberDict = {
   office: {areaCode: 321, num: 123456},
 }
 console.log(phoneDict.office.areaCode)
+// Access modifiers
+class PraramPropComponent implements HasEmail {
+  constructor(
+    public name: string,
+    public email: string = "no email"){
+
+  }
+}
+const accessModifier = new PraramPropComponent("John","john@gmail.com");
+console.log(accessModifier.name);
