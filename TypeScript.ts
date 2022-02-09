@@ -32,7 +32,6 @@ enum LanguagesKnown {
   Hindi,
   Tamil,
 }
-
 // Arrays
 // declaring student
 let students:IStudentInfo = {
@@ -105,8 +104,8 @@ console.log(multiDimensional[0][0]); // 1
 console.log(multiDimensional[0][1]); // 2
 // Passing Arrays to Functions
 let names: string[] = new Array("Mary", "Tom", "Jack", "Jill");
-function display(arr_names: string[]) {
-  for (let i = 0; i < arr_names.length; i++) {
+function display(arrNames: string[]) {
+  for (let i = 0; i < arrNames.length; i++) {
     console.log(">>> Passing arrays to function", names[i]);
   }
 }
@@ -176,3 +175,56 @@ function GetStudentsListGenerics(students: Array<IStudentInfo>) {
   });
 }
 GetStudentsListGenerics(studentlistG)
+// tuples
+let tuple: [number, string, number] = [
+  123,
+  "Ahmedabad",
+  3800
+]
+tuple = [0, "India", 2]
+console.log(tuple)
+// Intersection Types
+export interface HasPhoneNumber {
+  name: string;
+  phone: number;
+}
+export interface HasEmail {
+  name: string;
+  email: string;
+}
+let contactInfo =
+  Math.random() > 0.5
+    ?{
+      name: "John",
+      phone: 1234567890
+    }
+    : {
+      name: "John",
+      email: "john@gmail.com"
+    };
+console.log(">>> Intersection: ", contactInfo);
+// Union Types
+let otherContactInfo: HasEmail & HasPhoneNumber = {
+  name: "John",
+  email: "john@gmail.com",
+  phone: 1234567890
+}
+console.log(">>> Union: ", otherContactInfo)
+// Type Aliases
+type StringOrNumber = string | number;
+type HasNAme = {name:string}
+const alias : StringOrNumber = 25
+const alias1 : StringOrNumber = "25"
+console.log(">>> Type Aliases", alias)    //25
+console.log(">>> Type Aliases", alias1)   //25
+// Interface
+interface PhoneNumberDict {
+  [numberName: string]: undefined | {
+    areaCode: number;
+    num: number;
+  };
+}
+const phoneDict: PhoneNumberDict = {
+  office: {areaCode: 321, num: 123456},
+}
+console.log(phoneDict.office.areaCode)

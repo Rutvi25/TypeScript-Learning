@@ -1,19 +1,19 @@
 "use strict";
-exports.__esModule = true;
-var student_1 = require("./student");
+Object.defineProperty(exports, "__esModule", { value: true });
+const Student = require("./student");
 console.log("Hello TypeScript!");
 // variable types
-var a = 18;
+let a = 18;
 console.log(a);
 //>>>18
 //let a = "Rutvi"
 // It will show an error. Block scoped variables can't be declared
 //again with different datatype.
-var b = true;
-var c = "Rutvi";
-var d = 100;
+let b = true;
+let c = "Rutvi";
+let d = 100;
 // variable with type "any"
-var x;
+let x;
 x = 100;
 console.log(">>> Any Type variable: x=", x, typeof x);
 // >>> Any Type variable: x= 100 number
@@ -23,8 +23,8 @@ console.log(">>> Any Type variable: x=", x, typeof x);
 // If number is starting with 0 in typescript, then it will consider that number as an octal number,
 // except the immediate number after 0 is 8 or 9.
 // let y = 02.34 // this will also show an error because octal numbers must be integer.
-var y = "02.34";
-var z = parseFloat(y);
+let y = "02.34";
+let z = parseFloat(y);
 console.log(">>> parse the string as a float", z);
 //>>> parse the string as a float 2.34
 // Enum
@@ -36,44 +36,44 @@ var LanguagesKnown;
 })(LanguagesKnown || (LanguagesKnown = {}));
 // Arrays
 // declaring student
-var students = {
+let students = {
     Name: "Rutvi",
     Age: 21,
     Phone: 1234567890,
-    Language: LanguagesKnown[LanguagesKnown.English]
+    Language: LanguagesKnown[LanguagesKnown.English],
 };
 //List of students
-var studentlist = [
+let studentlist = [
     {
         Name: "John",
         Age: 20,
         Phone: 1023456798,
-        Language: LanguagesKnown[LanguagesKnown.Hindi]
+        Language: LanguagesKnown[LanguagesKnown.Hindi],
     },
     {
         Name: "Mark",
         Age: 22,
         Phone: 1203456789,
-        Language: LanguagesKnown[LanguagesKnown.Tamil]
+        Language: LanguagesKnown[LanguagesKnown.Tamil],
     },
 ];
-var studentlistG = [
+let studentlistG = [
     {
         Name: "John",
         Age: 20,
         Phone: 1023456798,
-        Language: LanguagesKnown[LanguagesKnown.Hindi]
+        Language: LanguagesKnown[LanguagesKnown.Hindi],
     },
     {
         Name: "Mark",
         Age: 22,
         Phone: 1203456789,
-        Language: LanguagesKnown[LanguagesKnown.Tamil]
+        Language: LanguagesKnown[LanguagesKnown.Tamil],
     },
 ];
 studentlist.push(students);
-for (var index = 0; index < studentlist.length; index++) {
-    var element = studentlist[index];
+for (let index = 0; index < studentlist.length; index++) {
+    let element = studentlist[index];
     console.log("Age: " +
         element.Age +
         " with Name " +
@@ -89,22 +89,22 @@ for (var index = 0; index < studentlist.length; index++) {
   Age: 21 with Name Rutvi has Phone: 1234567890 knows language English
 */
 // Array Objects
-var arr_names = new Array(4);
-for (var i = 0; i < arr_names.length; i++) {
+let arr_names = new Array(4);
+for (let i = 0; i < arr_names.length; i++) {
     arr_names[i] = i * 2;
     console.log(">>> Array object", arr_names[i]);
 }
 // Multi-dimensional array
-var multiDimensional = [
+let multiDimensional = [
     [1, 2, 3],
     [23, 24, 25],
 ];
 console.log(multiDimensional[0][0]); // 1
 console.log(multiDimensional[0][1]); // 2
 // Passing Arrays to Functions
-var names = new Array("Mary", "Tom", "Jack", "Jill");
-function display(arr_names) {
-    for (var i = 0; i < arr_names.length; i++) {
+let names = new Array("Mary", "Tom", "Jack", "Jill");
+function display(arrNames) {
+    for (let i = 0; i < arrNames.length; i++) {
         console.log(">>> Passing arrays to function", names[i]);
     }
 }
@@ -113,12 +113,12 @@ display(names);
 function disp() {
     return new Array("Mary", "Tom", "Jack", "Jill");
 }
-var nums = disp();
+let nums = disp();
 console.log(nums);
 // Functions
 // function declaration
 function GetStudentsList(students) {
-    students.forEach(function (element) {
+    students.forEach((element) => {
         console.log("Age: " +
             element.Age +
             " with Name " +
@@ -131,38 +131,33 @@ function GetStudentsList(students) {
 }
 GetStudentsList(studentlist);
 //Rest Parameter
-function GetNumbers() {
-    var nums = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        nums[_i] = arguments[_i];
-    }
-    nums.forEach(function (element) {
+function GetNumbers(...nums) {
+    nums.forEach((element) => {
         console.log("Number: " + element);
     });
 }
 GetNumbers(1, 2, 3, 4);
 // Default Parameter
-function GetInfo(info) {
-    if (info === void 0) { info = "Happy"; }
+function GetInfo(info = "Happy") {
     console.log(info);
 }
 GetInfo("Very Happy ");
 // Anonymous Function
-var StudentName = function (lName, fName) {
+let StudentName = function (lName, fName) {
     return fName + "..." + lName;
 };
 console.log(">>> Anonymous Functions ", StudentName("Patel", "Rutvi"));
 // Arrow Function
-var StudentFullName = function (lName, fName) {
+let StudentFullName = (lName, fName) => {
     return fName + "..." + lName;
 };
 console.log(StudentFullName("Patel", "Rutvi"));
 // Class
-var s = new student_1["default"]("Patel", "Rutvi");
+let s = new Student("Patel", "Rutvi");
 console.log(">>>classes:", s.GetFullName());
 // Generics
 function GetStudentsListGenerics(students) {
-    students.forEach(function (element) {
+    students.forEach((element) => {
         console.log(">>> Generics: " + "Age: " +
             element.Age +
             " with Name " +
@@ -174,4 +169,37 @@ function GetStudentsListGenerics(students) {
     });
 }
 GetStudentsListGenerics(studentlistG);
+// tuples
+let tuple = [
+    123,
+    "Ahmedabad",
+    3800
+];
+tuple = [0, "India", 2];
+console.log(tuple);
+let contactInfo = Math.random() > 0.5
+    ? {
+        name: "John",
+        phone: 1234567890
+    }
+    : {
+        name: "John",
+        email: "john@gmail.com"
+    };
+console.log(">>> Intersection: ", contactInfo);
+// Union Types
+let otherContactInfo = {
+    name: "John",
+    email: "john@gmail.com",
+    phone: 1234567890
+};
+console.log(">>> Union: ", otherContactInfo);
+const alias = 25;
+const alias1 = "25";
+console.log(">>> Type Aliases", alias); //25
+console.log(">>> Type Aliases", alias1); //25
+const phoneDict = {
+    office: { areaCode: 321, num: 123456 },
+};
+console.log(phoneDict.office.areaCode);
 //# sourceMappingURL=TypeScript.js.map
