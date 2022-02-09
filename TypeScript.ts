@@ -1,5 +1,5 @@
 import {IStudentInfo} from "./IStudentInfo"
-import Student from "./student"
+import Student = require("./student")
 console.log("Hello TypeScript!");
 // variable types
 let a = 18;
